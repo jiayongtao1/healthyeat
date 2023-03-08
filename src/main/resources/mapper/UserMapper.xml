@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hust.user.mapper.UserMapper">
+    <select id="getUser" resultType="com.hust.user.entity.User">
+        select * from users
+    </select>
+    <select id="hasSigned" parameterType="String" resultType="com.hust.user.entity.User">
+        select * from users where openid=#{openid}
+    </select>
+    <insert id="signIn" parameterType="String">
+        insert into users (openid) values (#{openid})
+    </insert>
+</mapper>
